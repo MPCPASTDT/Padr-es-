@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Padrões</title>
+
+    <style>
+        body {
+            background-color: #f5f5f5f8;
+            font-family: monospace;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            display: inline-block;
+            background-color: #f7f7f7;
+            color: #000000;
+            padding: 10px;
+            margin: 10px auto;
+            white-space: pre;
+            font-size: 14px;
+            text-align: left;
+        }
+      
+</style>
+</head>
+<body>
+    <h1>Padrões</h1>
+
+    <h2>Quadrado</h2>
+    <div class="container" id="Quadrado"></div>
+
+    <h2>Quadrado Oco</h2>
+    <div class="container" id="Quadradooco"></div>
+
+    <h2>Triângulo Retângulo</h2>
+    <div class="container" id="Triangulodireita"></div>
+
+    <h2>Triângulo Esquerdo</h2>
+    <div class="container" id="Trianguloesquerda"></div>
+
+    <h2>Triângulo invertido</h2>
+    <div class="container" id="Triangulodescendente"></div>
+
+    <h2>Triângulo Oco</h2>
+    <div class="container" id="Triangulooco"></div>
+
+    <h2>Pirâmide</h2>
+    <div class="container" id="Piramide"></div>
+
+    <h2>Pirâmide Invertida</h2>
+    <div class="container" id="Piramideinvertida"></div>
+
+    <h2>Pirâmide Oca</h2>
+    <div class="container" id="Piramideoca"></div>
+
+    <h2>Diamante</h2>
+    <div class="container" id="Diamante"></div>
+
+    <h2>Diamante Oco</h2>
+    <div class="container" id="Diamanteoco"></div>
+
+    <h2>Ampulheta</h2>
+    <div class="container" id="Ampulheta"></div>
+
+    <h2>Pascal Direito</h2>
+    <div class="container" id="Pascaldireita"></div>
+
+    <h2>Pascal Esquerdo</h2>
+    <div class="container" id="Pascalesquerda"></div>
+
+    <h2> Coração</h2>
+    <div class="container" id="Coracao"></div>
+
+    <script>
+        function padraoEstrelaQuadrada(tamanho) {
+            return ("*".repeat(tamanho) + "\n").repeat(tamanho);
+        }
+
+        function padraoQuadradoOco(tamanho) {
+            let resultado = "";
+            for (let i = 0; i < tamanho; i++) {
+                if (i === 0 || i === tamanho - 1) {
+                    resultado += "*".repeat(tamanho) + "\n";
+                } else {
+                    resultado += "" + " ".repeat(tamanho - 2) + "" + "\n";
+                }
+            }
+            return resultado;
+        }
+
+        function padraoTrianguloRetangulo(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) resultado += " ".repeat(altura - i) + "*".repeat(i) + "\n";
+            return resultado;
+        }
+
+        function padraoTrianguloEsquerdo(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) resultado += "*".repeat(i) + "\n";
+            return resultado;
+        }
+
+        function padraoTrianguloDescendente(altura) {
+            let resultado = "";
+            for (let i = altura; i >= 1; i--) resultado += "*".repeat(i) + "\n";
+            return resultado;
+        }
+
+        function padraoTrianguloOco(altura) {
+            let resultado = "*\n";
+            for (let i = 2; i < altura; i++) {
+                resultado += "" + " ".repeat(i - 2) + "\n";
+            }
+            return resultado + "*".repeat(altura) + "\n";
+        }
+
+        function padraoPiramide(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+            return resultado;
+        }
+
+        function padraoPiramideInvertida(altura) {
+            let resultado = "";
+            for (let i = altura; i >= 1; i--) resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+            return resultado;
+        }
+
+        function padraoPiramideOca(altura) {
+            let resultado = " ".repeat(altura - 1) + "*\n";
+            for (let i = 2; i < altura; i++) resultado += " ".repeat(altura - i) + "" + " ".repeat(2 * i - 3) + "\n";
+            return resultado + "*".repeat(2 * altura - 1) + "\n";
+        }
+
+        function padraoDiamante(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) {
+                resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+            }
+            for (let i = altura - 1; i >= 1; i--) {
+                resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+            }
+
+            return resultado;
+        }
+
+        function padraoDiamanteOco(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) {
+            let espacos = " ".repeat(altura - i);
+            let meio = i === 1 ? "" : "" + " ".repeat(2 * i - 3) + "*";
+            resultado += espacos + meio + "\n";
+        }
+            for (let i = altura - 1; i >= 1; i--) {
+            let espacos = " ".repeat(altura - i);
+            let meio = i === 1 ? "" : "" + " ".repeat(2 * i - 3) + "*";
+            resultado += espacos + meio + "\n";
+        }
+            return resultado;
+        }
+
+        function padraoAmpulheta(altura) {
+            let resultado = "";
+            for (let i = altura; i >= 1; i--) {
+            resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+        }
+            for (let i = 2; i <= altura; i++) {
+            resultado += " ".repeat(altura - i) + "*".repeat(2 * i - 1) + "\n";
+        }
+            return resultado;
+        }
+
+        function padraoPascalDireita(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) {
+                resultado += "*".repeat(i) + "\n";
+            }
+            for (let i = altura - 1; i >= 1; i--) {
+                resultado += "*".repeat(i) + "\n";
+            }
+
+            return resultado;
+        }
+
+        function padraoPascalEsquerda(altura) {
+            let resultado = "";
+            for (let i = 1; i <= altura; i++) {
+                let espacos = " ".repeat(altura - i);
+                resultado += espacos + "*".repeat(i) + "\n";
+            }
+            for (let i = altura - 1; i >= 1; i--) {
+                let espacos = " ".repeat(altura - i);
+                resultado += espacos + "*".repeat(i) + "\n";
+            }
+
+            return resultado;
+        }
+
+        function padraoCoracao(altura) {
+            let coracao = "";
+            const largura = 2 * altura - 1;
+
+            for (let i = 0; i < altura; i++) {
+                let linha = "";
+                for (let j = 0; j <= 2 * largura; j++) {
+                    if ((j >= altura - i && j <= altura + i) || (j >= 3 * altura - i - 2 && j <= 3 * altura + i - 2)) {
+                        linha += "*";
+                    } else {
+                        linha += " ";
+                    }
+                }
+                coracao += linha + "\n";
+            }
+
+            for (let i = 0; i <= largura; i++) {
+                let linha = "";
+                for (let j = 0; j <= 2 * largura; j++) {
+                    if (j >= i && j <= 2 * largura - i) {
+                        linha += "*";
+                    } else {
+                        linha += " ";
+                    }
+                }
+                coracao += linha + "\n";
+            }
+
+            return coracao;
+        }
+ 
+        document.getElementById("Quadrado").textContent = padraoEstrelaQuadrada(5);
+        document.getElementById("Quadradooco").textContent = padraoQuadradoOco(5);
+        document.getElementById("Triangulodireita").textContent = padraoTrianguloRetangulo(5);
+        document.getElementById("Trianguloesquerda").textContent = padraoTrianguloEsquerdo(5);
+        document.getElementById("Triangulodescendente").textContent = padraoTrianguloDescendente(5);
+        document.getElementById("Triangulooco").textContent = padraoTrianguloOco(5);
+        document.getElementById("Piramide").textContent = padraoPiramide(5);
+        document.getElementById("Piramideinvertida").textContent = padraoPiramideInvertida(5);
+        document.getElementById("Piramideoca").textContent = padraoPiramideOca(5);
+        document.getElementById("Diamante").textContent = padraoDiamante(5);
+        document.getElementById("Diamanteoco").textContent = padraoDiamanteOco(5);
+        document.getElementById("Ampulheta").textContent = padraoAmpulheta(5);
+        document.getElementById("Pascaldireita").textContent = padraoPascalDireita(5);
+        document.getElementById("Pascalesquerda").textContent = padraoPascalEsquerda(5);
+        document.getElementById("Coracao").textContent = padraoCoracao(6);
+    </script>
+
+    <a href="index (2).html"><center><p>Árvore de Natal : Padrões</p></center></a>
+
+</body>
+</html>

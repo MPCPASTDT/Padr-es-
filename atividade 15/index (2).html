@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title> Padrões-Árvore de Natal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        pre {
+            background-color: #ffffff;
+            padding: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Árvore de Natal</h1>
+    <div id="tree"></div>
+    <script>
+        const height = 10;
+        const treeDiv = document.getElementById('tree');
+        let tree = '<pre>';
+        for (let i = 0; i < height; i++) {
+
+            for (let j = 0; j < height - i - 1; j++) {
+                tree += ' ';
+            }
+            for (let k = 0; k < (2 * i + 1); k++) {
+                tree += '*';
+            }
+            tree += '\n';
+        }
+        const trunkWidth = 3; 
+        const trunkHeight = 3; 
+        const spaceBeforeTrunk = Math.floor((2 * height - 1 - trunkWidth) / 2)
+        for (let i = 0; i < trunkHeight; i++) {
+            for (let j = 0; j < spaceBeforeTrunk; j++) {
+                tree += ' ';
+            }
+            for (let k = 0; k < trunkWidth; k++) {
+                tree += '*';
+            }
+            tree += '\n'; 
+        }
+        tree += '</pre>';
+        treeDiv.innerHTML = tree;
+    </script>
+    <a href="index.html"><center><p>Padrões-Figuras</p></center></a>
+</body>
+</html>
